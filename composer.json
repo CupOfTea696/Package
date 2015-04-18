@@ -8,6 +8,5 @@
             "email": "cupoftea696@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {}
+    "minimum-stability": "stable"
 }
