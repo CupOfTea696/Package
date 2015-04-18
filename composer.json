@@ -13,5 +13,5 @@
         "psr-4": {
             "CupOfTea\\Package\\": "src/"
         }
-    },
+    }
 }
