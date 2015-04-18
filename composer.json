@@ -1,0 +1,13 @@
+{
+    "name": "cupoftea/package",
+    "description": "Package base for CoT Packages.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CupOfTea696",
+            "email": "cupoftea696@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
