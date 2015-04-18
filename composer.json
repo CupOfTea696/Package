@@ -8,5 +8,10 @@
             "email": "cupoftea696@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "CupOfTea\\Package\\": "src/"
+        }
+    },
 }
