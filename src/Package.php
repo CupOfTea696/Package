@@ -1,7 +1,8 @@
 <?php namespace CupOfTea\Package;
 
-trait Package {
-
+trait Package
+{
+    
     /**
      * Package Info
      *
@@ -12,13 +13,14 @@ trait Package {
      *
      * @return string
      */
-    public function package($info = false){
+    public function package($info = false)
+    {
         // Retrieve package in dot notation.
-        if($info == 'dot')
+        if ($info == 'dot')
             return strtolower(str_replace('/', '.', self::PACKAGE));
         
         // Include version
-        if($info == 'v')
+        if ($info == 'v')
             return self::PACKAGE . ':' . self::VERSION;
         
         return self::PACKAGE;
@@ -29,8 +31,9 @@ trait Package {
      *
      * @return string
      */
-    public function version(){
+    public function version()
+    {
         return self::VERSION;
     }
-
+    
 }
