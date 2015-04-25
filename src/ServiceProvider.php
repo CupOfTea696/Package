@@ -8,7 +8,8 @@ class ServiceProvider extends LaravelServiceProvider
     /**
      * {@inheritdoc}
      */
-    protected function mergeConfigFrom($value){
+    protected function mergeConfigFrom($path, $key)
+    {
         $config = $this->app['config']->get($key, []);
         
 		$this->app['config']->set($key, $this->array_merge_recursive(require $path, $config));
