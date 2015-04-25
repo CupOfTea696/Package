@@ -33,7 +33,7 @@ class ServiceProvider extends LaravelServiceProvider
         }
         
         if (func_num_args() > 2)
-            return call_user_func_array([__NAMESPACE__ . '\\' . __CLASS__, 'array_merge_recursive'], array_unshift(array_slice(func_get_args(), 2), $a1);
+            return call_user_func_array([__NAMESPACE__ . '\\' . __CLASS__, 'array_merge_recursive'], array_unshift(array_slice(func_get_args(), 2), $a1));
         
         return $a1;
     }
