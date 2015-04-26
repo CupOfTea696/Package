@@ -29,7 +29,7 @@ abstract class ServiceProvider extends LaravelServiceProvider
             return $a2;
         
         foreach ($a2 as $key => $val2) {
-            $val1 = isset($a1[$key]) ?: [];
+            $val1 = array_get($a1, $key, []);
             $a1[$key] = $this->array_merge_recursive($val1, $val2);
         }
         
