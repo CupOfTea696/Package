@@ -28,10 +28,8 @@ abstract class ServiceProvider extends LaravelServiceProvider
         if (!is_array($a1) || !is_array($a2) || array_keys($a1) === range(0, count($a1) - 1))
             return $a2;
         
-        foreach ($a2 as $key => $val2) {
-            $val1 = array_get($a1, $key, []);
-            $a1[$key] = $this->array_merge_recursive($val1, $val2);
-        }
+        foreach ($a2 as $key => $val2)
+            $a1[$key] = $this->array_merge_recursive(array_get($a1, $key, []), $val2);
         
         if (func_num_args() > 2)
             return call_user_func_array([__NAMESPACE__ . '\\' . __CLASS__, 'array_merge_recursive'], array_unshift(array_slice(func_get_args(), 2), $a1));
