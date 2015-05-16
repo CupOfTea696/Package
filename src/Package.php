@@ -1,19 +1,18 @@
 <?php namespace CupOfTea\Package;
 
+/**
+ * Package Info
+ *
+ */
 trait Package
 {
     
     /**
      * Package Info
      *
-     */
-    
-    /**
-     * Package Info
-     *
      * @return string
      */
-    public function package($info = false)
+    public static function package($info = false)
     {
         // Retrieve package in dot notation.
         if ($info == 'dot')
@@ -31,7 +30,7 @@ trait Package
      *
      * @return string
      */
-    public function version()
+    public static function version()
     {
         return self::VERSION;
     }
