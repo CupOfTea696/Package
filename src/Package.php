@@ -1,32 +1,32 @@
 <?php namespace CupOfTea\Package;
 
 /**
- * Package Info
- *
+ * Package Info.
  */
 trait Package
 {
-    
     /**
-     * Package Info
+     * Package Info.
      *
      * @return string
      */
     public static function package($info = false)
     {
         // Retrieve package in dot notation.
-        if ($info == 'dot')
+        if ($info == 'dot') {
             return strtolower(str_replace('/', '.', self::PACKAGE));
+        }
         
         // Include version
-        if ($info == 'v')
+        if ($info == 'v') {
             return self::PACKAGE . ':' . self::VERSION;
+        }
         
         return self::PACKAGE;
     }
     
     /**
-     * Package Version
+     * Package Version.
      *
      * @return string
      */
@@ -34,5 +34,4 @@ trait Package
     {
         return self::VERSION;
     }
-    
 }
