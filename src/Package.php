@@ -78,7 +78,7 @@ trait Package
                 "\xE2\x80\x8A",
                 "\xE2\x80\xAF",
                 "\xE2\x81\x9F",
-                "\xE3\x80\x80"
+                "\xE3\x80\x80",
             ];
 
             $value = str_replace($whitespace, '-', $value);
