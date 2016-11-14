@@ -1,5 +1,4 @@
 <?php
-
 namespace CupOfTea\Package\Contracts;
 
 interface Package
