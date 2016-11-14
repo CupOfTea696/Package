@@ -154,6 +154,6 @@ trait Package
      */
     public static function version()
     {
-        return self::getVersion();
+        return self::getPackageVersion();
     }
 }
