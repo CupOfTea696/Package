@@ -1,4 +1,6 @@
-<?php namespace CupOfTea\Package;
+<?php
+
+namespace CupOfTea\Package;
 
 use LogicException;
 
@@ -12,7 +14,7 @@ trait Package
      *
      * @return string
      */
-    public static function getVendor()
+    public static function getPackageVendor()
     {
         if (! defined('self::VENDOR')) {
             throw new LogicException(__CLASS__ . '::VENDOR was not defined');
@@ -26,7 +28,7 @@ trait Package
      *
      * @return string
      */
-    public static function getPackage()
+    public static function getPackageName()
     {
         if (! defined('self::PACKAGE')) {
             throw new LogicException(__CLASS__ . '::PACKAGE was not defined.');
@@ -40,7 +42,7 @@ trait Package
      *
      * @return string
      */
-    public static function getVersion()
+    public static function getPackageVersion()
     {
         if (! defined('self::VERSION')) {
             throw new LogicException(__CLASS__ . '::VERSION was not defined.');
@@ -56,11 +58,11 @@ trait Package
      *
      * @return string
      */
-    public static function getInfo($format = 'v/p (\vN)')
+    public static function getPackageInfo($format = 'v/p (\vN)')
     {
-        $v = self::getVendor();
-        $p = self::getPackage();
-        $n = self::getVersion();
+        $v = self::getPackageVendor();
+        $p = self::getPackageName();
+        $n = self::getPackageVersion();
 
         $toLowerCase = function ($value, $snake = false) {
             $whitespace = [
@@ -128,20 +130,20 @@ trait Package
     public static function package($info = false)
     {
         if ($info === false) {
-            return self::getPackage();
+            return self::getPackageName();
         }
 
         // Retrieve package in dot notation.
         if ($info == 'dot') {
-            return strtolower(str_replace('/', '.', self::PACKAGE));
+            return self::getPackageInfo('V.P');
         }
 
         // Include version
         if ($info == 'v') {
-            return self::PACKAGE . ':' . self::VERSION;
+            return self::getPackageInfo('V/P:n');
         }
 
-        return self::getPackage();
+        return self::getPackageName();
     }
 
     /**

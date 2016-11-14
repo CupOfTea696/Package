@@ -9,21 +9,21 @@ interface Package
      *
      * @return string
      */
-    public static function getVendor();
+    public static function getPackageVendor();
 
     /**
      * Get the Package name.
      *
      * @return string
      */
-    public static function getPackage();
+    public static function getPackageName();
 
     /**
      * Get the Package version.
      *
      * @return string
      */
-    public static function getVersion();
+    public static function getPackageVersion();
 
     /**
      * Get the Package info in a given format.
@@ -32,5 +32,5 @@ interface Package
      *
      * @return string
      */
-    public static function getInfo($format = 'v/p (\vN)');
+    public static function getPackageInfo($format = 'v/p (\vN)');
 }
