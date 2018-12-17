@@ -120,40 +120,4 @@ trait Package
 
         return $info;
     }
-
-    /**
-     * Package Info.
-     *
-     * @return string
-     * @deprecated 1.4.0
-     */
-    public static function package($info = false)
-    {
-        if ($info === false) {
-            return self::getPackageName();
-        }
-
-        // Retrieve package in dot notation.
-        if ($info == 'dot') {
-            return self::getPackageInfo('V.P');
-        }
-
-        // Include version
-        if ($info == 'v') {
-            return self::getPackageInfo('V/P:n');
-        }
-
-        return self::getPackageName();
-    }
-
-    /**
-     * Package Version.
-     *
-     * @return string
-     * @deprecated 1.4.0
-     */
-    public static function version()
-    {
-        return self::getPackageVersion();
-    }
 }
