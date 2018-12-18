@@ -2,6 +2,9 @@
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
+/**
+ * @deprecated 1.4.0
+ */
 abstract class ServiceProvider extends LaravelServiceProvider
 {
     /**
