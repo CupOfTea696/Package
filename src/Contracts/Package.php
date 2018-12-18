@@ -1,4 +1,5 @@
 <?php
+
 namespace CupOfTea\Package\Contracts;
 
 interface Package
@@ -28,8 +29,7 @@ interface Package
      * Get the Package info in a given format.
      *
      * @param string $format
-     *
      * @return string
      */
-    public static function getPackageInfo($format = 'v/p (\vN)');
+    public static function getPackageInfo($format = 'v/p (\vn)');
 }
