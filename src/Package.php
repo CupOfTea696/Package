@@ -13,6 +13,7 @@ trait Package
      * Get the Package vendor.
      *
      * @return string
+     * @throws \LogicException if self::VENDOR is not defined.
      */
     public static function getPackageVendor()
     {
@@ -27,6 +28,7 @@ trait Package
      * Get the Package name.
      *
      * @return string
+     * @throws \LogicException if self::PACKAGE is not defined.
      */
     public static function getPackageName()
     {
@@ -41,6 +43,7 @@ trait Package
      * Get the Package version.
      *
      * @return string
+     * @throws \LogicException if self::VERSION is not defined.
      */
     public static function getPackageVersion()
     {
@@ -55,16 +58,46 @@ trait Package
      * Get the Package info in a given format.
      *
      * @param string $format
-     *
      * @return string
+     * @throws LogicException if any of self::VENDOR, self::PACKAGE, or self::VERSION are not defined.
      */
-    public static function getPackageInfo($format = 'v/p (\vN)')
+    public static function getPackageInfo($format = 'v/p (\vn)')
     {
-        $v = self::getPackageVendor();
-        $p = self::getPackageName();
-        $n = self::getPackageVersion();
+        try {
+            $v = self::getPackageVendor();
+        } catch (LogicException $vendorException) {}
 
-        $toLowerCase = function ($value, $snake = false) {
+        try {
+            $p = self::getPackageName();
+        } catch (LogicException $packageException) {
+            if (isset($vendorException)) {
+                $packageException = new LogicException($packageException->getMessage(), $packageException->getCode(), $vendorException);
+            }
+        }
+
+        try {
+            $n = self::getPackageVersion();
+        } catch (LogicException $versionException) {
+            if (isset($packageException)) {
+                throw new LogicException($versionException->getMessage(), $versionException->getCode(), $packageException);
+            }
+
+            if (isset($vendorException)) {
+                throw new LogicException($versionException->getMessage(), $versionException->getCode(), $vendorException);
+            }
+
+            throw $versionException;
+        }
+
+        if (isset($packageException)) {
+            throw $packageException;
+        }
+
+        if (isset($vendorException)) {
+            throw $vendorException;
+        }
+
+        static $toLowerCase = function ($value, $snake = false) {
             $whitespace = [
                 "\xC2\xA0",
                 "\xE2\x80\x80",

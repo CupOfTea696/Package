@@ -32,5 +32,5 @@ interface Package
      *
      * @return string
      */
-    public static function getPackageInfo($format = 'v/p (\vN)');
+    public static function getPackageInfo($format = 'v/p (\vn)');
 }
