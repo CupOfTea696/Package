@@ -65,7 +65,8 @@ trait Package
     {
         try {
             $v = self::getPackageVendor();
-        } catch (LogicException $vendorException) {}
+        } catch (LogicException $vendorException) {
+        }
 
         try {
             $p = self::getPackageName();
