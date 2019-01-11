@@ -97,7 +97,7 @@ trait Package
             throw $vendorException;
         }
 
-        static $toLowerCase = function ($value, $snake = false) {
+        $toLowerCase = function ($value, $snake = false) {
             $whitespace = [
                 "\xC2\xA0",
                 "\xE2\x80\x80",
